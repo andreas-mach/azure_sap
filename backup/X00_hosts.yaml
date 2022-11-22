@@ -1,0 +1,84 @@
+X00_DB:
+  hosts:
+    x00dnw100l077:
+      ansible_host        : 10.110.96.6
+      ansible_user        : azureadm
+      ansible_connection  : ssh 
+      connection_type     : key
+      virtual_host        : x00dnw100l077 
+
+    x00dnw100l177:
+      ansible_host        : 10.110.96.4
+      ansible_user        : azureadm
+      ansible_connection  : ssh 
+      connection_type     : key
+      virtual_host        : x00dnw100l177 
+
+  vars:
+    node_tier             : hana
+    supported_tiers       : [hana]
+
+X00_SCS:
+  hosts:
+    x00scs00l777:
+      ansible_host        : 10.110.32.8
+      ansible_user        : azureadm
+      ansible_connection  : ssh 
+      connection_type     : key 
+      virtual_host        : x00scs00l777 
+
+  vars:
+    node_tier             : scs
+    supported_tiers       : [scs]
+
+X00_ERS:
+  hosts:
+    x00scs01l777:
+      ansible_host        : 10.110.32.9
+      ansible_user        : azureadm
+      ansible_connection  : ssh 
+      connection_type     : key 
+      virtual_host        : x00scs01l777 
+
+  vars:
+    node_tier             : ers
+    supported_tiers       : [ers]
+
+
+X00_PAS:
+  hosts:
+    x00app00l777:
+      ansible_host        : 10.110.32.10
+      ansible_user        : azureadm
+      ansible_connection  : ssh 
+      connection_type     : key 
+      virtual_host        : x00app00l777 
+
+  vars:
+    node_tier             : pas
+    supported_tiers       : [pas]
+
+X00_APP:
+  hosts:
+    x00app01l777:
+      ansible_host        : 10.110.32.5
+      ansible_user        : azureadm
+      ansible_connection  : ssh 
+      connection_type     : key 
+      virtual_host        : x00app01l777 
+
+  vars:
+    node_tier             : app
+    supported_tiers       : [app]
+
+X00_WEB:
+  hosts:
+  vars:
+    node_tier             : web
+    supported_tiers       : [web]
+
+X00_OBSERVER_DB:
+  hosts:
+  vars:
+    node_tier             : observer
+    supported_tiers       : [observer]

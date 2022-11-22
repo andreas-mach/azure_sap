@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"sap_landscape","Source":"../../terraform-units/modules/sap_landscape","Dir":"../../terraform-units/modules/sap_landscape"},{"Key":"sap_namegenerator","Source":"../../terraform-units/modules/sap_namegenerator","Dir":"../../terraform-units/modules/sap_namegenerator"},{"Key":"","Source":"","Dir":"."}]}

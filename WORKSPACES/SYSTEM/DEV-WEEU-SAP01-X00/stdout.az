@@ -1,0 +1,21 @@
+WARNING: You have 3 updates available. Consider updating your CLI installation with 'az upgrade'
+
+Please let us know how we are doing: https://aka.ms/azureclihats
+and let us know if you're interested in trying out our newest features: https://aka.ms/CLIUXstudy
+azure-cli                         2.38.0 *
+
+core                              2.38.0 *
+telemetry                          1.0.6 *
+
+Dependencies:
+msal                            1.18.0b1
+azure-mgmt-resource             21.1.0b1
+
+Python location '/usr/bin/python3.6'
+Extensions directory '/home/tux/.azure/cliextensions'
+
+Python (Linux) 3.6.15 (default, Sep 23 2021, 15:41:43) [GCC]
+
+Legal docs and information: aka.ms/AzureCliLegal
+
+
