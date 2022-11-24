@@ -560,8 +560,8 @@ else
     echo "${USER} account ready for use with Azure SAP Automated Deployment"
 
     # Install dotnet
-    sudo snap install dotnet-sdk --classic --channel=3.1
-    sudo snap alias dotnet-sdk.dotnet dotnet
+###    sudo snap install dotnet-sdk --classic --channel=3.1
+###    sudo snap alias dotnet-sdk.dotnet dotnet
 
 
 fi

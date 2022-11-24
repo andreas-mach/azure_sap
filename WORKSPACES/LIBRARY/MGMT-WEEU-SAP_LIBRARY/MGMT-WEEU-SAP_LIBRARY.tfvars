@@ -27,7 +27,7 @@ location="westeurope"
 #resourcegroup_arm_id="/subscriptions/dcb2713e-5dc8-4139-a9af-9768287bbb8d/resourceGroups/example-resources"
 
 resourcegroup_name="sap"
-resourcegroup_arm_id="/subscriptions/c5d8a6a7-f09c-4580-8687-1f8d8d735815/resourceGroups/SAP"
+###resourcegroup_arm_id="/subscriptions/c5d8a6a7-f09c-4580-8687-1f8d8d735815/resourceGroups/SAP"
 
 # The resourcegroup_tags value is optional, it can be used to provide tags to be associated with the resource group
 #resourcegroup_tags = {
