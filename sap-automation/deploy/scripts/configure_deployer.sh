@@ -270,6 +270,7 @@ else
         gnupg
 #        sshpass
         dos2unix
+        git
     )
 
     cli_pkgs=(
