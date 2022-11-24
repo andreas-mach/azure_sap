@@ -185,7 +185,7 @@ pkg_mgr_upgrade()
         sudo $${pkg_mgr} upgrade --quiet -y
         ;;
     (zypper)
-        sudo $${pkg_mgr} --gpg-auto-import-keys --quiet --non-interactive patch
+        sudo $${pkg_mgr} --gpg-auto-import-keys --non-interactive patch
         ;;
     esac
 
