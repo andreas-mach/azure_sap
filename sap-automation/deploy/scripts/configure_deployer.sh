@@ -164,6 +164,48 @@ pkg_mgr_refresh()
     pkg_mgr_refreshed=true
 }
 
+
+pkg_mgr_upgrade()
+{
+    typeset -g pkg_mgr pkg_mgr_upgraded
+
+    if [[ -z "${pkg_mgr:-}" ]]; then
+        pkg_mgr_init
+    fi
+
+    if [[ -n "${pkg_mgr_upgraded:-}" ]]; then
+        return
+    fi
+
+    case "${pkg_mgr}" in
+    (apt-get)
+        sudo ${pkg_mgr} upgrade --quiet -y
+        ;;
+    (zypper)
+###        sudo ${pkg_mgr} --gpg-auto-import-keys --non-interactive patch
+        ;;
+    esac
+
+    pkg_mgr_upgraded=true
+}
+
+pkg_mgr_install()
+{
+    typeset -g pkg_mgr
+
+    pkg_mgr_refresh
+
+    case "${pkg_mgr}" in
+    (apt-get)
+        sudo env DEBIAN_FRONTEND=noninteractive ${pkg_mgr} --quiet --yes install "${@}"
+        ;;
+    (zypper)
+        sudo ${pkg_mgr} --gpg-auto-import-keys --quiet --non-interactive install --no-confirm "${@}"
+        ;;
+    esac
+}
+
+
 #
 # Directories and paths
 #
@@ -180,7 +222,6 @@ ansible_pip3=${ansible_venv_bin}/pip3
 asad_home="${HOME}/Azure_SAP_Automated_Deployment"
 asad_ws="${asad_home}/WORKSPACES"
 asad_repo="https://github.com/Azure/sap-automation.git"
-#asad_repo="https://github.com/andreas-mach/azure_sap.git "
 asad_dir="${asad_home}/$(basename ${asad_repo} .git)"
 
 # Terraform installation directories
@@ -228,7 +269,6 @@ else
         gnupg
 #        sshpass
         dos2unix
-        git
     )
 
     cli_pkgs=(
@@ -254,6 +294,10 @@ else
         )
         ;;
     esac
+
+    # Upgrade packages
+    pkg_mgr_upgrade
+
 
     # Ensure our package metadata cache is up to date
     pkg_mgr_refresh
@@ -514,8 +558,8 @@ else
     echo "${USER} account ready for use with Azure SAP Automated Deployment"
 
     # Install dotnet
-###    sudo snap install dotnet-sdk --classic --channel=3.1
-###    sudo snap alias dotnet-sdk.dotnet dotnet
+    sudo snap install dotnet-sdk --classic --channel=3.1
+    sudo snap alias dotnet-sdk.dotnet dotnet
 
 
 fi

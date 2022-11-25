@@ -168,6 +168,47 @@ pkg_mgr_refresh()
 }
 
 
+pkg_mgr_upgrade()
+{
+    typeset -g pkg_mgr pkg_mgr_upgraded
+
+    if [[ -z "$${pkg_mgr:-}" ]]; then
+        pkg_mgr_init
+    fi
+
+    if [[ -n "$${pkg_mgr_upgraded:-}" ]]; then
+        return
+    fi
+
+    case "$${pkg_mgr}" in
+    (apt-get)
+        sudo $${pkg_mgr} upgrade --quiet -y
+        ;;
+    (zypper)
+###        sudo $${pkg_mgr} --gpg-auto-import-keys --quiet --non-interactive patch
+        ;;
+    esac
+
+    pkg_mgr_upgraded=true
+}
+
+pkg_mgr_install()
+{
+    typeset -g pkg_mgr
+
+    pkg_mgr_refresh
+
+    case "$${pkg_mgr}" in
+    (apt-get)
+        sudo env DEBIAN_FRONTEND=noninteractive $${pkg_mgr} --quiet --yes install "$${@}"
+        ;;
+    (zypper)
+        sudo $${pkg_mgr} --gpg-auto-import-keys --quiet --non-interactive install --no-confirm "$${@}"
+        ;;
+    esac
+}
+
+
 #
 # Directories and paths
 #
@@ -232,7 +273,6 @@ else
         gnupg
 #        sshpass
         dos2unix
-        git
     )
 
     cli_pkgs=(
@@ -258,6 +298,9 @@ else
         )
         ;;
     esac
+
+    # Upgrade packages
+    pkg_mgr_upgrade
 
 
     # Ensure our package metadata cache is up to date
