@@ -255,10 +255,6 @@ else
         ;;
     esac
 
-    # Upgrade packages
-    pkg_mgr_upgrade
-
-
     # Ensure our package metadata cache is up to date
     pkg_mgr_refresh
 
