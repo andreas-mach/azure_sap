@@ -27,7 +27,7 @@ location = "westeurope"
 # The resourcegroup_name value is optional, it can be used to override the name of the resource group that will be provisioned
 # The resourcegroup_name arm_id is optional, it can be used to provide an existing resource group for the deployment
 
-resourcegroup_name="sap"
+#resourcegroup_name="sap"
 
 ###resourcegroup_arm_id="/subscriptions/c5d8a6a7-f09c-4580-8687-1f8d8d735815/resourceGroups/SAP"
 
