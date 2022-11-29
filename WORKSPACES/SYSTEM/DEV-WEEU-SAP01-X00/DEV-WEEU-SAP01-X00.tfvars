@@ -120,7 +120,8 @@ database_high_availability = true
 
 # For M series VMs use the SKU name for instance "M32ts"
 # If using a custom disk sizing populate with the node name for Database you have used in the file custom_disk_sizes_filename
-database_size = "D8s_v3"
+###database_size = "M32ts"
+database_size = "E20ds_v4"
 
 # database_instance_number if provided defines the instance number of the HANA database
 #database_instance_number = ""
@@ -199,7 +200,7 @@ database_vm_zones = ["1"]
 #database_vm_authentication_type = ""
 
 # Optional, Defines the list of availability sets to deployt the Database VMs in
-#database_vm_avset_arm_ids = []
+###database_vm_avset_arm_ids = ["1"]
 
 # Optional, Defines the that the database virtual machines will not be placed in a proximity placement group
 #database_no_ppg = false
@@ -251,7 +252,7 @@ ers_instance_number = "02"
 scs_server_zones = ["1"]
 
 # scs_server_sku, if defined provides the SKU to use for the SCS servers
-#scs_server_sku = ""
+scs_server_sku = "B1ms"
 
 # The vm_image defines the Virtual machine image to use for the application servers, 
 # if source_image_id is specified the deployment will use the custom image provided, 
@@ -295,13 +296,13 @@ scs_server_image = {
 #########################################################################################
 
 # application_server_count defines how many application servers to deploy
-application_server_count = 2
+application_server_count = 1
 
 # application_server_zones is an optional list defining the availability zones to which deploy the application servers
 #application_server_zones = []
 
 # application_server_sku, if defined provides the SKU to use for the application servers
-#application_server_sku = ""
+application_server_sku = "B1ms"
 
 # app_tier_dual_nics is a boolean flag controlling if the application tier servers should have two network cards
 #app_tier_dual_nics = false
