@@ -121,7 +121,7 @@ database_high_availability = true
 # For M series VMs use the SKU name for instance "M32ts"
 # If using a custom disk sizing populate with the node name for Database you have used in the file custom_disk_sizes_filename
 ###database_size = "M32ts"
-database_size = "E20ds_v4"
+database_size = "S4Demo"
 
 # database_instance_number if provided defines the instance number of the HANA database
 #database_instance_number = ""
@@ -194,7 +194,7 @@ database_vm_image = {
 }
 
 # database_vm_zones is an optional list defining the availability zones to deploy the database servers
-database_vm_zones = ["1"]
+###database_vm_zones = ["1"]
 
 # Optional, Defines the default authentication model for the Database VMs (key/password)
 #database_vm_authentication_type = ""
@@ -206,7 +206,7 @@ database_vm_zones = ["1"]
 #database_no_ppg = false
 
 # Optional, Defines the that the database virtual machines will not be placed in an availability set
-#database_no_avset = false
+database_no_avset = false
 
 # Optional, Defines if the tags for the database virtual machines
 #database_tags = null
@@ -249,7 +249,7 @@ scs_instance_number = "00"
 ers_instance_number = "02"
 
 # scs_server_zones is an optional list defining the availability zones to which deploy the SCS servers
-scs_server_zones = ["1"]
+###scs_server_zones = ["1"]
 
 # scs_server_sku, if defined provides the SKU to use for the SCS servers
 scs_server_sku = "B1ms"
@@ -270,7 +270,7 @@ scs_server_image = {
 #scs_server_no_ppg = false
 
 # scs_server_no_avset defines the that the SCS virtual machines will not be placed in an availability set
-#scs_server_no_avset = false
+scs_server_no_avset = false
 
 # scs_server_app_nic_ips, if provided provides the static IP addresses 
 # for the network interface cards connected to the application subnet
@@ -329,7 +329,7 @@ application_server_sku = "B1ms"
 #application_server_no_ppg = false
 
 # application_server_no_avset defines the that the application server virtual machines will not be placed in an availability set
-#application_server_no_avset = false
+application_server_no_avset = false
 
 # application_server_tags, if defined provides the tags to be associated to the application servers
 #application_server_tags = null
